@@ -13,10 +13,10 @@ var Restaurants = new Schema({
   updated_at: Date
 });
 
-var RestaurantsModel = mongoose.model('Restaurants', Restaurants);
+var Restaurants = mongoose.model('Restaurants', Restaurants);
 
-router.get('/', function(req, res, next){
-	return RestaurantsModel.find(function (restaurants) {
+router.get('/', function(req, res, next) {
+	Restaurants.find().then(function(restaurants) {
 			res.render('restaurants/restIndex', {restaurants: restaurants});
 	});
 });
