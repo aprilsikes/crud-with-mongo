@@ -10,8 +10,9 @@ block content
   if restaurants
     for restaurant in restaurants
       div.rest
-        p #{restaurant.name}
-        p #{restaurant.location}
+        p Name: #{restaurant.name}
+        p Location: #{restaurant.location}
+        br
         //- p.nam: a(href='/restaurants/' +restaurant.id) #{restaurant.name}
         //- img(src='#{restaurant.image}')
         //- p.cui #{restaurant.cuisine} Cuisine

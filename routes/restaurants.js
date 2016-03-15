@@ -4,19 +4,19 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/restaurants_development');
 
-var Schema = mongoose.Schema;
+// var Schema = mongoose.Schema;
 
-var Restaurants = new Schema({
+var schema = new mongoose.Schema({
   name: String,
   location: String,
   created_at: Date,
   updated_at: Date
 });
 
-var Restaurants = mongoose.model('Restaurants', Restaurants);
+var Restaurant = mongoose.model('Restaurant', schema);
 
 router.get('/', function(req, res, next) {
-	Restaurants.find().then(function(restaurants) {
+	Restaurant.find().then(function(restaurants) {
 			res.render('restaurants/restIndex', {restaurants: restaurants});
 	});
 });
@@ -26,7 +26,7 @@ router.get('/new', function(req, res, next){
 });
 
 router.post('/', function (req, res, next) {
-  restaurant = new RestaurantsModel({
+  restaurant = new Restaurant({
     name: req.body.name,
     location: req.body.location
   });
